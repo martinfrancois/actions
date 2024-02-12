@@ -212,6 +212,7 @@ export class GradleStateCache {
         for (const initScriptFilename of initScriptFilenames) {
             const initScriptContent = this.readResourceFileAsString('init-scripts', initScriptFilename)
             const initScriptPath = path.resolve(initScriptsDir, initScriptFilename)
+            core.info(`Writing init script to ${initScriptPath}`)
             fs.writeFileSync(initScriptPath, initScriptContent)
         }
     }
@@ -241,6 +242,7 @@ export class GradleStateCache {
     private readResourceFileAsString(...paths: string[]): string {
         // Resolving relative to __dirname will allow node to find the resource at runtime
         const absolutePath = path.resolve(__dirname, '..', '..', '..', 'sources', 'src', 'resources', ...paths)
+        core.info(`Reading resource file: ${absolutePath}`)
         return fs.readFileSync(absolutePath, 'utf8')
     }
 
