@@ -71,6 +71,7 @@ runs:
         build-scan-terms-of-service-agree: ${{ inputs.build-scan-terms-of-service-agree }}
         artifact-retention-days: 1
         arguments: |
+          --info
           -Dorg.gradle.configureondemand=false
           -Dorg.gradle.dependency.verification=off
           -Dorg.gradle.unsafe.isolated-projects=false
